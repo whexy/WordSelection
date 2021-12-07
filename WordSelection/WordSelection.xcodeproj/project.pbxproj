@@ -60,7 +60,6 @@
 		EC8B02CF275F117B0031E15D = {
 			isa = PBXGroup;
 			children = (
-				EC6288EF275FBD1500501D9E /* MainView.swift */,
 				EC8B02D4275F117B0031E15D /* Shared */,
 				EC8B02E3275F117C0031E15D /* macOS */,
 				EC8B02DD275F117C0031E15D /* Products */,
@@ -70,6 +69,7 @@
 		EC8B02D4275F117B0031E15D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				EC6288EF275FBD1500501D9E /* MainView.swift */,
 				EC8B02D5275F117B0031E15D /* WordSelectionApp.swift */,
 				EC8B02D6275F117B0031E15D /* ContentView.swift */,
 				EC8B02F3275F15B00031E15D /* FlexView.swift */,
