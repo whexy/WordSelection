@@ -25,7 +25,18 @@
 		ECEAFD08276199EA00052EFC /* DictionaryCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEAFD06276199EA00052EFC /* DictionaryCardModel.swift */; };
 		ECEAFD0D2761AF1000052EFC /* pasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEAFD0C2761AF1000052EFC /* pasteboard.swift */; };
 		ECEAFD0E2761AF1000052EFC /* pasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEAFD0C2761AF1000052EFC /* pasteboard.swift */; };
+		ECEAFD162761B36500052EFC /* WordSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEAFD152761B36500052EFC /* WordSelectionTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECEAFD172761B36500052EFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC8B02D0275F117B0031E15D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC8B02DB275F117C0031E15D;
+			remoteInfo = "WordSelection (iOS)";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EC6288EC275FA1A400501D9E /* DictionaryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCardView.swift; sourceTree = "<group>"; };
@@ -40,6 +51,8 @@
 		EC8B02F9275F2B150031E15D /* words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = words.swift; sourceTree = "<group>"; };
 		ECEAFD06276199EA00052EFC /* DictionaryCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCardModel.swift; sourceTree = "<group>"; };
 		ECEAFD0C2761AF1000052EFC /* pasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pasteboard.swift; sourceTree = "<group>"; };
+		ECEAFD132761B36500052EFC /* WordSelectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordSelectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECEAFD152761B36500052EFC /* WordSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSelectionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +70,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECEAFD102761B36500052EFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -65,6 +85,7 @@
 			children = (
 				EC8B02D4275F117B0031E15D /* Shared */,
 				EC8B02E3275F117C0031E15D /* macOS */,
+				ECEAFD142761B36500052EFC /* WordSelectionTests */,
 				EC8B02DD275F117C0031E15D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +107,7 @@
 			children = (
 				EC8B02DC275F117C0031E15D /* WordSelection.app */,
 				EC8B02E2275F117C0031E15D /* WordSelection.app */,
+				ECEAFD132761B36500052EFC /* WordSelectionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +148,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		ECEAFD142761B36500052EFC /* WordSelectionTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECEAFD152761B36500052EFC /* WordSelectionTests.swift */,
+			);
+			path = WordSelectionTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,6 +193,24 @@
 			productReference = EC8B02E2275F117C0031E15D /* WordSelection.app */;
 			productType = "com.apple.product-type.application";
 		};
+		ECEAFD122761B36500052EFC /* WordSelectionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECEAFD192761B36500052EFC /* Build configuration list for PBXNativeTarget "WordSelectionTests" */;
+			buildPhases = (
+				ECEAFD0F2761B36500052EFC /* Sources */,
+				ECEAFD102761B36500052EFC /* Frameworks */,
+				ECEAFD112761B36500052EFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECEAFD182761B36500052EFC /* PBXTargetDependency */,
+			);
+			name = WordSelectionTests;
+			productName = WordSelectionTests;
+			productReference = ECEAFD132761B36500052EFC /* WordSelectionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -178,6 +226,10 @@
 					};
 					EC8B02E1275F117C0031E15D = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					ECEAFD122761B36500052EFC = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = EC8B02DB275F117C0031E15D;
 					};
 				};
 			};
@@ -196,6 +248,7 @@
 			targets = (
 				EC8B02DB275F117C0031E15D /* WordSelection (iOS) */,
 				EC8B02E1275F117C0031E15D /* WordSelection (macOS) */,
+				ECEAFD122761B36500052EFC /* WordSelectionTests */,
 			);
 		};
 /* End PBXProject section */
@@ -214,6 +267,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC8B02EA275F117C0031E15D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECEAFD112761B36500052EFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +310,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECEAFD0F2761B36500052EFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECEAFD162761B36500052EFC /* WordSelectionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECEAFD182761B36500052EFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC8B02DB275F117C0031E15D /* WordSelection (iOS) */;
+			targetProxy = ECEAFD172761B36500052EFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EC8B02EB275F117C0031E15D /* Debug */ = {
@@ -481,6 +557,57 @@
 			};
 			name = Release;
 		};
+		ECEAFD1A2761B36500052EFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7DN923F8U9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.whexy.app.WordSelectionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSelection.app/WordSelection";
+			};
+			name = Debug;
+		};
+		ECEAFD1B2761B36500052EFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7DN923F8U9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.whexy.app.WordSelectionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSelection.app/WordSelection";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -507,6 +634,15 @@
 			buildConfigurations = (
 				EC8B02F1275F117C0031E15D /* Debug */,
 				EC8B02F2275F117C0031E15D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECEAFD192761B36500052EFC /* Build configuration list for PBXNativeTarget "WordSelectionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECEAFD1A2761B36500052EFC /* Debug */,
+				ECEAFD1B2761B36500052EFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
