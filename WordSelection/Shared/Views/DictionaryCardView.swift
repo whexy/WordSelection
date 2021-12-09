@@ -13,16 +13,29 @@ struct DictionaryCardView: View {
     @State private var dictionaryModel : DictionaryModel = DefaultDictionaryModel
     var body: some View {
         VStack(alignment: .leading) {
-            Text(word)
-                .font(.system(size: 28))
             HStack {
+                Text(word)
+                    .font(.system(size: 28))
+                Spacer()
                 Text("/\(dictionaryModel.phone)/")
                     .font(.system(size: 14))
                     .foregroundColor(.secondary)
-                Spacer()
-                Text("\(dictionaryModel.trans)")
-                    .font(.system(size: 14))
-                    .foregroundColor(.secondary)
+            }
+            Text("\(dictionaryModel.trans)")
+                .font(.system(size: 14))
+                .fontWeight(.light)
+            VStack(alignment: .leading) {
+                ForEach(dictionaryModel.sent, id:\.self) { sent in
+                    HStack {
+                        Text(.init(sent))
+                            .font(.system(size: 14))
+                            .multilineTextAlignment(.leading)
+                            .padding()
+                        Spacer()
+                    }
+                    .background(Color.blue.opacity(0.1))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                }
             }
         }.task {
             let youdao = YouDaoDictionary(word: word)
@@ -38,6 +51,6 @@ struct DictionaryCardView: View {
 
 struct DictionaryCard_Previews: PreviewProvider {
     static var previews: some View {
-        DictionaryCardView(word: "fuck")
+        DictionaryCardView(word: "illegally")
     }
 }

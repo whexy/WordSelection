@@ -17,15 +17,17 @@ class DictionaryModel: ObservableObject {
     @Published var word: String
     @Published var phone: String
     @Published var trans: String
+    @Published var sent: [String]
     
-    init(word: String, phone: String, trans: String) {
+    init(word: String, phone: String, trans: String, sent: [String]) {
         self.word = word
         self.phone = phone
         self.trans = trans
+        self.sent = sent
     }
 }
 
-let DefaultDictionaryModel = DictionaryModel(word: "", phone: "--", trans: "--")
+let DefaultDictionaryModel = DictionaryModel(word: "", phone: "--", trans: "--", sent: [])
 
 class YouDaoDictionary {
     var word: String
@@ -54,13 +56,17 @@ class YouDaoDictionary {
                 tran.value
             })
         }).prefix(5).joined(separator: ";")
-        return DictionaryModel(word: word, phone: phone, trans: trans)
+        let sent = Array(result.auth_sents_part.sent.map{ sent in
+            sent.foreign.replacingOccurrences(of: "<.?b>", with: "**", options: .regularExpression)
+        }.prefix(2))
+        return DictionaryModel(word: word, phone: phone, trans: trans, sent: sent)
     }
     
     // MARK: define result structures of YouDao API
     struct Result: Codable {
         let simple: Simple
         let web_trans: WebTrans
+        let auth_sents_part: AuthSentsPart
     }
     struct Simple: Codable {
         let word: [SimpleWord]
@@ -93,5 +99,11 @@ class YouDaoDictionary {
     }
     struct Trans: Codable {
         let value: String
+    }
+    struct AuthSentsPart: Codable {
+        let sent: [Sent]
+    }
+    struct Sent: Codable {
+        let foreign: String
     }
 }

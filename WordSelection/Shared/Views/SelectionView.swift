@@ -8,13 +8,18 @@ import SwiftUI
 
 class ChosenWords: ObservableObject {
     @Published var chosenWords: Set<String> = []
+    @Published var isEmpty: Bool = true
     
     func addWord(word: String) {
         chosenWords.insert(word)
+        isEmpty = false
     }
     
     func removeWord(word: String) {
         chosenWords.remove(word)
+        if chosenWords.isEmpty {
+            isEmpty = true
+        }
     }
 }
 
@@ -31,28 +36,51 @@ where Data.Element: Hashable
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                VStack(spacing: spacing) {
-                    ForEach(computeRows(width: geometry.size.width), id: \.self) { rowElements in
-                        HStack(spacing: spacing) {
-                            ForEach(rowElements, id: \.self) { element in
-                                content(element)
-                                    .fixedSize()
-                                    .readSize { size in
-                                        elementsSize[element] = size
-                                    }
+                Group {
+                    VStack(spacing: spacing) {
+                        Color.clear.frame(height:spacing / 2)
+                        ForEach(computeRows(width: geometry.size.width), id: \.self) { rowElements in
+                            HStack(spacing: spacing) {
+                                ForEach(rowElements, id: \.self) { element in
+                                    content(element)
+                                        .fixedSize()
+                                        .readSize { size in
+                                            elementsSize[element] = size
+                                        }
+                                }
+                                Spacer()
                             }
-                            Spacer()
+                            .padding(.leading, 5)
                         }
-                        .padding(.horizontal, 5)
+                        Color.clear.frame(height:spacing)
                     }
+                    .environmentObject(chosen)
                 }
-                .environmentObject(chosen)
-                List(Array(chosen.chosenWords), id: \.self) { word in
-                    DictionaryCardView(word: word)
+                .background(Color(red: 0.454, green: 0.454, blue: 0.5, opacity: 0.12))
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                
+                ScrollView {
+                    VStack {
+                        ForEach(Array(chosen.chosenWords), id: \.self) { word in
+                            DictionaryCardView(word: word)
+                                .padding()
+                        }
+                        Group {
+                            if !chosen.isEmpty {
+                                Button {
+                                    
+                                } label: {
+                                    Label("Add to Anki", systemImage: "plus.circle")
+                                }
+                                .buttonStyle(.borderedProminent)
+                            }
+                        }
+                    }
                 }
             }
         }
         .navigationTitle("Choose a word")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     func computeRows(width availableWidth: CGFloat) -> [[Data.Element]] {
@@ -94,16 +122,16 @@ struct WordView: View {
     @State private var isSelected : Bool = false
     var body: some View {
         Text(word)
-            .foregroundColor(isSelected ? Color.white : Color.black)
+            .foregroundColor(isSelected ? Color.white : Color.primary)
             .padding(8)
-        #if os(iOS)
+#if os(iOS)
             .background(RoundedRectangle(cornerRadius: 8)
                             .fill(isSelected ? Color(uiColor: .systemBlue) : Color(uiColor: .secondarySystemFill)))
-        #endif
-        #if os(macOS)
+#endif
+#if os(macOS)
             .background(RoundedRectangle(cornerRadius: 8)
                             .fill(isSelected ? Color.blue : Color(nsColor: .secondaryLabelColor)))
-        #endif
+#endif
             .onTapGesture {
                 isSelected = !isSelected
                 if (isSelected) {
