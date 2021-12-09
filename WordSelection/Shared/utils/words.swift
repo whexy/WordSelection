@@ -1,5 +1,5 @@
 //
-//  CardViewModel.swift
+//  FlexViewModel.swift
 //  WordSelection
 //
 //  Created by shiwx on 7/12/21.

@@ -1,5 +1,5 @@
 //
-//  FlexView.swift
+//  SelectionView.swift
 //  WordSelection
 //  Created by shiwx on 7/12/21.
 //
@@ -18,7 +18,7 @@ class ChosenWords: ObservableObject {
     }
 }
 
-struct FlexView<Data: Collection, Content: View>: View
+struct SelectionView<Data: Collection, Content: View>: View
 where Data.Element: Hashable
 {
     let data: Data
@@ -46,19 +46,9 @@ where Data.Element: Hashable
                         .padding(.horizontal, 5)
                     }
                 }
-                //                .frame(height: height)
-#if os(iOS)
-                .background(RoundedRectangle(cornerRadius: 8)
-                                .fill(Color(uiColor: .tertiarySystemFill)))
-#endif
-#if os(macOS)
-                .background(RoundedRectangle(cornerRadius: 8)
-                                .fill(Color(nsColor: .secondaryLabelColor)))
-#endif
-                .padding(5)
                 .environmentObject(chosen)
                 List(Array(chosen.chosenWords), id: \.self) { word in
-                    DictionaryCard(word: word)
+                    DictionaryCardView(word: word)
                 }
             }
         }
@@ -90,7 +80,6 @@ where Data.Element: Hashable
             }
             remainingWidth = remainingWidth - elementSize.width - spacing
         }
-        //        height = CGFloat(currentRow + 2) * (elementHeight + spacing)
         return rows
     }
 }
@@ -128,6 +117,6 @@ struct WordView: View {
 
 struct FlexView_Previews: PreviewProvider {
     static var previews: some View {
-        FlexView(data: toWordlist(sentence: "Just as ecstasy purifies you of the particular and the contingent"), content: toWordView, spacing: 15)
+        SelectionView(data: toWordlist(sentence: "Just as ecstasy purifies you of the particular and the contingent"), content: toWordView, spacing: 15)
     }
 }
