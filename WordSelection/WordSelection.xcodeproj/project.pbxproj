@@ -23,6 +23,8 @@
 		EC8B02FB275F2B150031E15D /* words.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B02F9275F2B150031E15D /* words.swift */; };
 		ECEAFD07276199EA00052EFC /* DictionaryCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEAFD06276199EA00052EFC /* DictionaryCardModel.swift */; };
 		ECEAFD08276199EA00052EFC /* DictionaryCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEAFD06276199EA00052EFC /* DictionaryCardModel.swift */; };
+		ECEAFD0D2761AF1000052EFC /* pasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEAFD0C2761AF1000052EFC /* pasteboard.swift */; };
+		ECEAFD0E2761AF1000052EFC /* pasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEAFD0C2761AF1000052EFC /* pasteboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,7 @@
 		EC8B02F6275F21560031E15D /* GeoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoExtension.swift; sourceTree = "<group>"; };
 		EC8B02F9275F2B150031E15D /* words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = words.swift; sourceTree = "<group>"; };
 		ECEAFD06276199EA00052EFC /* DictionaryCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCardModel.swift; sourceTree = "<group>"; };
+		ECEAFD0C2761AF1000052EFC /* pasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pasteboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				EC8B02F9275F2B150031E15D /* words.swift */,
+				ECEAFD0C2761AF1000052EFC /* pasteboard.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -220,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECEAFD0D2761AF1000052EFC /* pasteboard.swift in Sources */,
 				EC6288F0275FBD1500501D9E /* MainView.swift in Sources */,
 				EC8B02F7275F21560031E15D /* GeoExtension.swift in Sources */,
 				EC8B02F4275F15B00031E15D /* SelectionView.swift in Sources */,
@@ -234,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECEAFD0E2761AF1000052EFC /* pasteboard.swift in Sources */,
 				EC6288F1275FBD1500501D9E /* MainView.swift in Sources */,
 				EC8B02F8275F21560031E15D /* GeoExtension.swift in Sources */,
 				EC8B02F5275F15B00031E15D /* SelectionView.swift in Sources */,

@@ -18,14 +18,12 @@ struct MainView: View {
                     .border(.gray, width: 1)
                     .padding()
                     .onAppear {
-                        let pasteboard: String? = UIPasteboard.general.string
-                        if let pasteboardString = pasteboard {
+                        if let pasteboardString = getPasteboard() {
                             sen = pasteboardString
                         }
                     }
                 Button {
-                    let pasteboard: String? = UIPasteboard.general.string
-                    if let pasteboardString = pasteboard {
+                    if let pasteboardString = getPasteboard() {
                         sen = pasteboardString
                     }
                 } label: {
